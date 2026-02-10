@@ -1,0 +1,21 @@
+# Configuración generada automáticamente basada en tu kitty.conf
+
+# Fuentes
+font-family = "FantasqueSansM Nerd Font Mono"
+font-style = "Bold"
+font-size = 16
+
+# Estética
+background-opacity = 0.9
+window-padding-x = 4
+window-padding-y = 4
+
+# Tema (El tema Glacier es muy similar al que usabas)
+theme = Glacier
+
+# Comportamiento
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+# Compatibilidad con Hyprland
+# La clase por defecto es com.mitchellh.ghostty, que ya agregamos a tus reglas.
