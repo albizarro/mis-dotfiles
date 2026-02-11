@@ -1,14 +1,25 @@
 # Configuración generada automáticamente basada en tu kitty.conf
 
 # Fuentes
+# Recomendación Estética: "JetBrainsMono Nerd Font" es muy popular y moderna.
+# Si la instalas, descomenta la siguiente línea:
+# font-family = "JetBrainsMono Nerd Font"
 font-family = "FantasqueSansM Nerd Font Mono"
 font-style = "Bold"
 font-size = 16
 
+# Características de Fuente (Ligaduras)
+# Activa ligaduras si la fuente lo soporta (ej. flechas y símbolos unidos)
+font-feature = calt
+font-feature = liga
+font-feature = dlig
+
 # Estética
 background-opacity = 0.9
-window-padding-x = 4
-window-padding-y = 4
+# Desenfoque del fondo (requiere soporte del compositor, funciona bien en Hyprland)
+background-blur-radius = 20
+window-padding-x = 6
+window-padding-y = 6
 
 # Tema (El tema Glacier es muy similar al que usabas)
 theme = Glacier
@@ -19,3 +30,33 @@ mouse-hide-while-typing = true
 
 # Compatibilidad con Hyprland
 # La clase por defecto es com.mitchellh.ghostty, que ya agregamos a tus reglas.
+
+# Configuración del Cursor para mayor visibilidad
+cursor-style = bar
+cursor-style-blink = true
+cursor-color = #ffffff
+cursor-text = #000000
+cursor-opacity = 1
+adjust-cursor-thickness = 16
+
+# Productividad y Experiencia
+copy-on-select = clipboard
+scrollback-limit = 10000000
+shell-integration = detect
+
+# Rendimiento
+gtk-single-instance = true
+
+# Ratón
+mouse-scroll-multiplier = 2
+
+# Shaders y Efectos Visuales
+# Descomenta una de las siguientes líneas para activar un efecto:
+
+# Efecto Bloom (brillo suave alrededor del texto)
+custom-shader = /home/aldo/.config/ghostty/shaders/bloom.glsl
+
+# Efecto Retro Scanlines (líneas tipo monitor antiguo)
+# custom-shader = /home/aldo/.config/ghostty/shaders/scanlines.glsl
+
+# Puedes combinar efectos añadiendo varias líneas 'custom-shader' en orden.
