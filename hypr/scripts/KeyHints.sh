@@ -13,9 +13,19 @@ if pidof yad > /dev/null; then
   pkill yad
 fi
 
+# Calculate window size: 65% width, 80% height of the focused monitor (logical pixels)
+_mon=$(hyprctl monitors -j)
+_scale=$(echo "$_mon" | jq -r '.[] | select(.focused) | .scale')
+_raw_w=$(echo "$_mon" | jq -r '.[] | select(.focused) | .width')
+_raw_h=$(echo "$_mon" | jq -r '.[] | select(.focused) | .height')
+WIN_W=$(echo "$_raw_w $_scale" | awk '{printf "%d", $1 / $2 * 0.65}')
+WIN_H=$(echo "$_raw_h $_scale" | awk '{printf "%d", $1 / $2 * 0.80}')
+
 # Launch yad with calculated width and height
 GDK_BACKEND=$BACKEND yad \
     --center \
+    --width="$WIN_W" \
+    --height="$WIN_H" \
     --title="KooL Quick Cheat Sheet" \
     --no-buttons \
     --list \
@@ -39,8 +49,8 @@ GDK_BACKEND=$BACKEND yad \
 " ALT mouse scroll up/down   " "Desktop Zoom" "Desktop Magnifier" \
 " Alt V" "Clipboard Manager" "(cliphist)" \
 " W" "Choose wallpaper" "(Wallpaper Menu)" \
-" Shift W" "Choose wallpaper effects" "(imagemagick + swww)" \
-"CTRL ALT W" "Random wallpaper" "(via swww)" \
+" Shift W" "Choose wallpaper effects" "(imagemagick + awww)" \
+"CTRL ALT W" "Random wallpaper" "(via awww)" \
 " CTRL ALT B" "Hide/UnHide Waybar" "waybar" \
 " CTRL B" "Choose waybar styles" "(waybar styles)" \
 " ALT B" "Choose waybar layout" "(waybar layout)" \
