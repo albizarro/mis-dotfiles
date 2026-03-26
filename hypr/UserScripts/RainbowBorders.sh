@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# for rainbow borders animation
+# Electric Tempest — storm border animation
+# Palette: electric cyan + ice white + storm blue (no rainbow)
 
-function random_hex() {
-    random_hex=("0xff$(openssl rand -hex 3)")
-    echo $random_hex
-}
+# 0xff81ecff = electric cyan   | 0xfff9f9f9 = white flash
+# 0xff00affe = storm core blue | 0xff00e3fd = primary gradient
+# 0xffe0e5f4 = ice blue-white  | 0xff00d4ec = primary dim
 
-# rainbow colors only for active window
-hyprctl keyword general:col.active_border $(random_hex)  $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex)  270deg
-
-# rainbow colors for inactive window (uncomment to take effect)
-#hyprctl keyword general:col.inactive_border $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) $(random_hex) 270deg
+hyprctl keyword general:col.active_border \
+    0xff81ecff 0xfff9f9f9 0xff00affe 0xff00e3fd 0xffe0e5f4 0xff81ecff 0xff00d4ec 0xfff9f9f9 0xff00affe 0xff00e3fd \
+    270deg
